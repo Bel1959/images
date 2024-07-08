@@ -8,7 +8,7 @@ import dlib
 import os
 
 # Assurez-vous que ce fichier est dans le même dossier que votre script
-predictor_path = "shape_predictor_68_face_landmarks.dat"
+predictor_path = "shape_predictor_81_face_landmarks.dat"
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(predictor_path)
 
@@ -45,7 +45,7 @@ def enhance_image_opencv(input_image):
         landmarks = predictor(gray, face)
 
         # Améliorer les visages sans ajouter de points bleus visibles
-        for n in range(68):
+        for n in range(81):
             x = landmarks.part(n).x
             y = landmarks.part(n).y
             # Au lieu de dessiner des cercles, nous pouvons appliquer un léger flou gaussien
